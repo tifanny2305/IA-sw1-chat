@@ -12,6 +12,10 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 qa_chain = qa_chain()
 
+@app.route("/", methods=["GET"])
+def index():
+    return jsonify({"message": "✅ IA-sw1-chat API is online"}), 200
+
 @app.route('/query', methods=['POST'])
 def query():
     data = request.get_json()
